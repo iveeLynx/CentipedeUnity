@@ -12,6 +12,20 @@ public class Bonus : Unit
     private float minX, maxX, minY, maxY;
     public static int bonusNumber = 0;
 
+    private void Start()
+    {
+        GetCameraSizes();
+    }
+
+    private void Update()
+    {
+        Vector3 position = transform.position;
+        if (position.y <= minY)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // If it reaches player - gives bonus
     private void OnTriggerEnter2D(Collider2D collider)
     {

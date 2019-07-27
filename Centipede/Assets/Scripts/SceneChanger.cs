@@ -12,7 +12,7 @@ public class SceneChanger : MonoBehaviour
 
     public GameObject text;
     public GameObject exitText;
-
+    public GameObject score;
 
     /*
      * OnPress - changes color of the text to light-blue when button pressed
@@ -44,6 +44,11 @@ public class SceneChanger : MonoBehaviour
             case "Menu": SceneManager.LoadScene(0); break;
             case "Exit": Application.Quit(); break;
         }
+    }
+
+    public void FinalScore()
+    {
+        SceneManager.LoadScene(2);
     }
 
 

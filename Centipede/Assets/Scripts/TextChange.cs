@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class TextChange : MonoBehaviour
 {
-
-    
     public GameObject score;
 
     void Start()
@@ -24,4 +22,6 @@ public class TextChange : MonoBehaviour
     {
         score.GetComponent<Text>().text = "Score: " + Player.score + "\nLives: " + Player.lives + "\nWave: " + Player.wave;
     }
+
+    
 }

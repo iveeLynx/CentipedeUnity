@@ -14,6 +14,10 @@ public class EnemyHead : Unit
     private int segmentsCount = 0;
     private int segmentNumber = 0;
 
+    private BoxCollider2D boxCollider2D;
+    private float leftradius;
+    private float upperradius;
+
     private int wave = 5;
 
     EnemyMushroom enemyMushroom;
@@ -34,6 +38,9 @@ public class EnemyHead : Unit
 
     private void Awake()
     {
+        // Get collider sizes
+        ColliderSize();
+
         // Load prefab
         enemyMushroom = Resources.Load<EnemyMushroom>("MushObstacle");
 
@@ -65,9 +72,17 @@ public class EnemyHead : Unit
         gridMoveTimer += Time.deltaTime;
 
         Movement();
-
     }
 
+    // Get segments collider size
+    private void ColliderSize()
+    {
+        boxCollider2D = GetComponent<BoxCollider2D>();
+        Vector3 pos = transform.position;
+        leftradius = pos.x - boxCollider2D.bounds.min.x;
+        upperradius = pos.y - boxCollider2D.bounds.min.y;
+    }
+    
     // Moves centipede segments 
     private void Movement()
     {
